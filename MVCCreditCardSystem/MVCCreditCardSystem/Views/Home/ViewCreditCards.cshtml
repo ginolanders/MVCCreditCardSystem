@@ -4,7 +4,7 @@
     ViewBag.Title = "ViewCreditCards";
 }
 
-<h2>List of Credit Cards</h2>
+<h2>Credit Card List</h2>
 
 <p>
     @Html.ActionLink("Create New", "CaptureCreditCard")
@@ -12,16 +12,16 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.cardNumber)
+            @Html.DisplayNameFor(model => model.CardNumber)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.cardCVV)
+            @Html.DisplayNameFor(model => model.CardCVV)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.cardExpiryDate)
+            @Html.DisplayNameFor(model => model.CardExpiryDate)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.cardCountry)
+            @Html.DisplayNameFor(model => model.CardCountry)
         </th>
         <th></th>
     </tr>
@@ -29,16 +29,16 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.cardNumber)
+            @Html.DisplayFor(modelItem => item.CardNumber)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.cardCVV)
+            @Html.DisplayFor(modelItem => item.CardCVV)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.cardExpiryDate)
+            @Html.DisplayFor(modelItem => item.CardExpiryDate)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.cardCountry)
+            @Html.DisplayFor(modelItem => item.CardCountry)
         </td>
     </tr>
 }

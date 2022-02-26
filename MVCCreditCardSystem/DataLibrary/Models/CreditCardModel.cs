@@ -4,9 +4,9 @@ namespace DataLibrary.Models
 {
     public class CreditCardModel
     {
-        public string cardNumber { get; set; }
-        public int cardCVV { get; set; }
-        public DateTime cardExpiryDate { get; set; }
-        public string cardCountry { get; set; }
+        public string CardNumber { get; set; }
+        public int CardCVV { get; set; }
+        public DateTime CardExpiryDate { get; set; }
+        public string CardCountry { get; set; }
     }
 }

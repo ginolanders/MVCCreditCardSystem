@@ -167,7 +167,6 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\CaptureCreditCard.cshtml" />
     <Content Include="Views\Home\ViewCreditCards.cshtml" />
-    <Content Include="Views\Home\CaptureCreditCardProvider.cshtml" />
     <Content Include="Views\Home\ViewCreditCardProviders.cshtml" />
   </ItemGroup>
   <ItemGroup>

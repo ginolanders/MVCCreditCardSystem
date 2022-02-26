@@ -1,9 +1,7 @@
 ﻿using static DataLibrary.BusinessLogic.CreditCardProcessor;
 using static DataLibrary.BusinessLogic.CreditCardProviderProcessor;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace MVCCreditCardSystem.Controllers
@@ -17,7 +15,7 @@ namespace MVCCreditCardSystem.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "The main function of the application is to capture valid credit card numbers.";
 
             return View();
         }
@@ -29,85 +27,59 @@ namespace MVCCreditCardSystem.Controllers
             return View();
         }
 
+        //VIEW - Credit Cards
         public ActionResult ViewCreditCards()
         {
-            ViewBag.Message = "List of Credit Cards";
+            ViewBag.Message = "Credit Card List";
 
             var data = LoadCreditCards();
-            List<Models.CreditCardModel> creditCards = new List<Models.CreditCardModel>();
-
-            foreach (var item in data)
-            {
-                creditCards.Add(new Models.CreditCardModel
+            List<Models.CreditCardModel> creditCards = 
+                (from item in data select new Models.CreditCardModel
                 {
-                    cardNumber = item.cardNumber,
-                    cardCVV = item.cardCVV,
-                    cardExpiryDate = item.cardExpiryDate,
-                    cardCountry = item.cardCountry
-
-                });
-            }
+                    CardNumber = item.CardNumber,
+                    CardCVV = item.CardCVV,
+                    CardExpiryDate = item.CardExpiryDate,
+                    CardCountry = item.CardCountry 
+                }).ToList();
 
             return View(creditCards);
         }
 
         public ActionResult CaptureCreditCard()
         {
-            ViewBag.Message = "Capture Credit Card";
+            ViewBag.Message = "Submit Credit Card";
 
             return View();
         }
 
+        //CREATE - Credit Card
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult CaptureCreditCard(Models.CreditCardModel model)
         {
+            //Check if all information is present before creating the record
             if (ModelState.IsValid)
             {
-                CreateCreditCard(model.cardNumber, model.cardCVV, model.cardExpiryDate, model.cardCountry);
+                CreateCreditCard(model.CardNumber, model.CardCVV, model.CardExpiryDate, model.CardCountry);
                 return RedirectToAction("Index");
             }
 
             return View();
         }
 
+        //VIEW - Credit Card Providers
         public ActionResult ViewCreditCardProviders()
         {
-            ViewBag.Message = "List of Credit Card Providers";
+            ViewBag.Message = "Credit Card Provider List";
 
             var data = LoadCreditCardProviders();
-            List<Models.CreditCardProviderModel> creditCardProviders = new List<Models.CreditCardProviderModel>();
-
-            foreach (var item in data)
-            {
-                creditCardProviders.Add(new Models.CreditCardProviderModel
+            List<Models.CreditCardProviderModel> creditCardProviders = 
+                (from item in data select new Models.CreditCardProviderModel
                 {
-                    providerName = item.providerName
-
-                });
-            }
+                    ProviderName = item.ProviderName
+                }).ToList();
 
             return View(creditCardProviders);
-        }
-
-        public ActionResult CaptureCreditCardProvider()
-        {
-            ViewBag.Message = "Capture Credit Card Provider";
-
-            return View();
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult CaptureCreditCardProvider(Models.CreditCardProviderModel model)
-        {
-            if (ModelState.IsValid)
-            {
-                CreateCreditCardProvider(model.providerName);
-                return RedirectToAction("Index");
-            }
-
-            return View();
         }
 
         public ActionResult CreditCardProviders()

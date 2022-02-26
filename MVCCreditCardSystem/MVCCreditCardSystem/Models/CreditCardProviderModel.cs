@@ -5,6 +5,6 @@ namespace MVCCreditCardSystem.Models
     public class CreditCardProviderModel
     {
         [Display(Name = "Provider Name")]
-        public string providerName { get; set; }
+        public string ProviderName { get; set; }
     }
 }

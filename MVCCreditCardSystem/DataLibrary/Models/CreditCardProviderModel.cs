@@ -1,10 +1,8 @@
-﻿
-
-namespace DataLibrary.Models
+﻿namespace DataLibrary.Models
 {
     public class CreditCardProviderModel
     {
-        public string providerName { get; set; }
+        public string ProviderName { get; set; }
 
     }
 }

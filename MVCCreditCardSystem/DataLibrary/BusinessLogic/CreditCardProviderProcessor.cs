@@ -1,30 +1,15 @@
 ﻿using DataLibrary.DataAccess;
 using DataLibrary.Models;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DataLibrary.BusinessLogic
 {
     public static class CreditCardProviderProcessor
     {
-        public static int CreateCreditCardProvider(string providerName)
-        {
-                CreditCardProviderModel data = new CreditCardProviderModel
-                {
-                    providerName = providerName
-                };
-
-                string sqlInsert = @"INSERT INTO [dbo].[CreditCardProvider] (ProviderName) VALUES (@providerName);";
-
-                return SqlDataAccess.SaveData(sqlInsert, data);
-
-        }
-
+        //Display accepted Credit Card Types in the system
         public static List<CreditCardProviderModel> LoadCreditCardProviders()
         {
+            //sql statement to fetch all data from CreditCardProvider table
             string sql = @"SELECT ProviderName FROM dbo.CreditCardProvider;";
 
             return SqlDataAccess.LoadData<CreditCardProviderModel>(sql);

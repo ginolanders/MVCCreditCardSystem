@@ -9,11 +9,10 @@ namespace DataLibrary.DataAccess
 {
     public class SqlDataAccess
     {
-        public static string GetConnectionString(string connectionName = "MVCCreditCardDB")
-        {
-            return ConfigurationManager.ConnectionStrings[connectionName].ConnectionString;
-        }
+        //Get connection string from Web.config
+        public static string GetConnectionString(string connectionName = "MVCCreditCardDB") => ConfigurationManager.ConnectionStrings[connectionName].ConnectionString;
 
+        //Make connection to database and fetch data
         public static List<T> LoadData<T>(string sql)
         {
             using (IDbConnection conn = new SqlConnection(GetConnectionString()))
@@ -22,6 +21,7 @@ namespace DataLibrary.DataAccess
             }
         }
 
+        //Make connection to database and save the supplied information
         public static int SaveData<T>(string sql, T data)
         {
             using (IDbConnection conn = new SqlConnection(GetConnectionString()))
@@ -30,14 +30,12 @@ namespace DataLibrary.DataAccess
             }
         }
 
+        //Used to determine if the record already exists in the database
         public static object FetchData(string sql)
         {
             using (IDbConnection conn = new SqlConnection(GetConnectionString()))
             {
-
-                var p = conn.Query(sql).FirstOrDefault();
-
-                return p;
+                return conn.Query(sql).FirstOrDefault();
             }
         }
     }

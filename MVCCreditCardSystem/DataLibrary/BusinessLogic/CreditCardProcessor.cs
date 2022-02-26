@@ -2,30 +2,31 @@
 using DataLibrary.Models;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DataLibrary.BusinessLogic
 {
     public static class CreditCardProcessor
     {
+        //Create a new credit card number in the system
         public static int CreateCreditCard(string cardNumber, int cardCVV, DateTime cardExpiryDate, string cardCountry)
         {
+            //First check if the record can be found in the database with the supplied card number
             string sqlExistingRecord = string.Format(@"SELECT * FROM dbo.CreditCard WHERE cardNumber = '{0}'", cardNumber);
 
             var isExist = SqlDataAccess.FetchData(sqlExistingRecord);
 
+            //If it does not exist, create the record
             if (isExist == null)
             {
                 CreditCardModel data = new CreditCardModel
                 {
-                    cardNumber = cardNumber,
-                    cardCVV = cardCVV,
-                    cardExpiryDate = cardExpiryDate,
-                    cardCountry = cardCountry
+                    CardNumber = cardNumber,
+                    CardCVV = cardCVV,
+                    CardExpiryDate = cardExpiryDate,
+                    CardCountry = cardCountry
                 };
 
+                //sql statement to insert supplied information to database
                 string sqlInsert = @"INSERT INTO dbo.CreditCard (cardNumber, cardCVV, cardExpiryDate, cardCountry)
                            VALUES (@cardNumber, @cardCVV, @cardExpiryDate, @cardCountry);";
 
@@ -35,8 +36,10 @@ namespace DataLibrary.BusinessLogic
 
         }
 
+        //Load the data in the database and display in the system
         public static List<CreditCardModel> LoadCreditCards()
         {
+            //sql statement to select all records in CreditCard table
             string sql = @"SELECT cardNumber, cardCVV, cardExpiryDate, cardCountry
                             FROM dbo.CreditCard;";
 
