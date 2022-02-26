@@ -1,0 +1,46 @@
+﻿@model IEnumerable<MVCCreditCardSystem.Models.CreditCardModel>
+
+@{
+    ViewBag.Title = "ViewCreditCards";
+}
+
+<h2>List of Credit Cards</h2>
+
+<p>
+    @Html.ActionLink("Create New", "CaptureCreditCard")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.cardNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cardCVV)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cardExpiryDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cardCountry)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.cardNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cardCVV)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cardExpiryDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cardCountry)
+        </td>
+    </tr>
+}
+
+</table>

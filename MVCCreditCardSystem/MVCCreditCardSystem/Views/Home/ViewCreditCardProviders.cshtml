@@ -1,0 +1,28 @@
+﻿@model IEnumerable<MVCCreditCardSystem.Models.CreditCardProviderModel>
+
+@{
+    ViewBag.Title = "View Credit Card Providers";
+}
+
+<h2>View Credit Card Providers</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.providerName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.providerName)
+        </td>
+    </tr>
+}
+
+</table>

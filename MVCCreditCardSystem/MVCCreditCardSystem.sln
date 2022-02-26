@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32210.238
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVCCreditCardSystem", "MVCCreditCardSystem\MVCCreditCardSystem.csproj", "{7A344686-87EB-4AE6-A6D7-695B0C3CF9EA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLibrary", "DataLibrary\DataLibrary.csproj", "{3796087A-7A10-466F-BAD7-DD2BD7BC5744}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "MVCCreditCardDB", "MVCCreditCardDB\MVCCreditCardDB.sqlproj", "{5A5791A7-F10A-425C-8662-8B372E681D63}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7A344686-87EB-4AE6-A6D7-695B0C3CF9EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A344686-87EB-4AE6-A6D7-695B0C3CF9EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A344686-87EB-4AE6-A6D7-695B0C3CF9EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A344686-87EB-4AE6-A6D7-695B0C3CF9EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3796087A-7A10-466F-BAD7-DD2BD7BC5744}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3796087A-7A10-466F-BAD7-DD2BD7BC5744}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3796087A-7A10-466F-BAD7-DD2BD7BC5744}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3796087A-7A10-466F-BAD7-DD2BD7BC5744}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A5791A7-F10A-425C-8662-8B372E681D63}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A5791A7-F10A-425C-8662-8B372E681D63}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A5791A7-F10A-425C-8662-8B372E681D63}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{5A5791A7-F10A-425C-8662-8B372E681D63}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A5791A7-F10A-425C-8662-8B372E681D63}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A5791A7-F10A-425C-8662-8B372E681D63}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E3771478-1583-4334-B54F-0BFC657D4740}
+	EndGlobalSection
+EndGlobal
